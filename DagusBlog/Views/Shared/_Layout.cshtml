@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dagu's News Feed</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/animate.css">
+    <link rel="stylesheet" type="text/css" href="/Content/font.css">
+    <link rel="stylesheet" type="text/css" href="/Content/li-scroller.css">
+    <link rel="stylesheet" type="text/css" href="/Content/slick.css">
+    <link rel="stylesheet" type="text/css" href="/Content/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="/Content/theme.css">
+    <link rel="stylesheet" type="text/css" href="/Content/style.css">
+
+    <!--My Styles Styles -->
+
+
+    <!--ASP's Styles -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/admin")
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+
+   
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <div class="container">
+        <header id="header">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_top">
+                        <div class="header_top_left">
+                            <ul class="top_nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                <li>@Html.ActionLink("Contact", "Info", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            </ul>
+                        </div>
+                            <div class="header_top_right">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                    </div>                 
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_bottom">
+                        <div class="logo_area"><a href="index.html" class="logo"><img src="/images/logo.jpg" alt=""></a></div>
+                       
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+
+    <footer id="footer">
+        <div class="footer_top">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="footer_widget wow fadeInLeftBig">
+                        <h2>Flickr Images</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="footer_widget wow fadeInDown">
+                        <h2>Tag</h2>
+                        <ul class="tag_nav">
+                            <li><a href="#">Politics</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Life &amp; Style</a></li>
+                            <li><a href="#">Technology</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="footer_widget wow fadeInRightBig">
+                        <h2>Contact</h2>
+                        <p>Developed By Abenezer Abebe ,Yohannes Showangeremew, Daniel Ambaw</p>
+                        <address>
+                            Top-Trending News.  123 ADDIS ABABA ,ETHIOPIA
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p class="copyright">Copyright &copy; @DateTime.Now <a href="index.html">Dagu's NewsFeed</a></p>
+            <p class="developer">Developed By Dagu's Team</p>
+        </div>
+    </footer>
+    </div>
+
+    <script src="/Scripts/jquery.min.js"></script>
+    <script src="/Scripts/wow.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/slick.min.js"></script>
+    <script src="/Scripts/jquery.li-scroller.1.0.js"></script>
+    <script src="/Scripts/jquery.newsTicker.min.js"></script>
+    <script src="/Scripts/jquery.fancybox.pack.js"></script>
+    <script src="/Scripts/custom.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+   
+</body>
+</html>
+
+@*<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>@ViewBag.Title - DagusBlog System</title>
+            @Styles.Render("~/Content/css")
+            <link href="~/Content/bootstrap.css" rel="stylesheet" />
+            @Scripts.Render("~/bundles/modernizr")
+
+            <meta name="description" content="The description of my page" />
+        </head>
+        <body>
+            <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            Menu <i class="fa fa-bars"></i>
+                        </button>
+                        @Html.ActionLink("Dagu's blog", "Index", "Home", null, new { @class = "navbar-brand" })
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("home", "Index", "Home")
+                            </li>
+                            @{if (User.IsInRole("Administrator"))
+                                {
+                                    <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                                }
+
+                            }
+                        </ul>
+                            @Html.Partial("_LoginPartial")
+
+                            @*<li>
+                    @Html.ActionLink("about", "About", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("contact", "Contact", "Home")
+                </li>
+                            <!--the @linkhere*-->
+
+
+                </div>
+                <!--  /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+        @RenderBody()
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <ul class="list-inline text-center">
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
+
+
+    @*
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
